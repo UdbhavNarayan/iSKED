@@ -6,7 +6,7 @@ CSCI3100 Group Project - iSKED is a schedular and group chat platform that can h
     FrontEnd Code: 
     Email Verification:
     Backend:
-    Database: SignUp/Login Database and API calls done
+    Database: SignUp/Login Database and API calls ✅
     
   
     

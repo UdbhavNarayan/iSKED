@@ -13,15 +13,15 @@
 <body>
     <div class="container">
         <section id = "login">
-        <form id="login" class="form">
+        <form id="login" class="form" method="POST" action="/login">
             <h2 class="title">iSked Login</h2>
             <div class="fm form__message--error"></div>
             <div class="form__input-group">
-                <input type="text" placeholder="Email" class="form__input">
+                <input type="text" placeholder="Email" name = "email" class="form__input">
                 <div class="form__input-error-message"></div>
             </div>
             <div class="form__input-group">
-                <input type="password" placeholder="Password" class="form__input">
+                <input type="password" placeholder="Password" name="password" class="form__input">
                 <div class="form__input-error-message"></div>
             </div>
             <p class="form__text">
@@ -35,7 +35,7 @@
         </section>
     
         <section id = "signup">
-        <form id="createAccount" class="form form--hidden">
+        <form id="createAccount" class="form form--hidden" method="POST" action="/register"></form>>
             <h2 class="title">Register as User</h2>
             <div class="fm form__message--error"></div>
             <div class="form__input-group">

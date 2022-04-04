@@ -10,54 +10,30 @@
     <section class="Heading" style="background-color: #02134c;">
         <h2 style="color: white; text-align: center;"> Setting </h2>
     </section>
-    <p>Click on the "Choose File" button to upload a file:</p>
-    <form action="/action_page.php">
-    <input type="file" id="myFile" name="filename">
-    </form>
-    <div> Username </div>
-    
-    <section class="Password"> Change Password:</section>
-    <style>
-        input[type=text], select {
-          width: 100%;
-          padding: 12px 20px;
-          margin: 8px 0;
-          display: inline-block;
-          border: 1px solid #ccc;
-          border-radius: 4px;
-          box-sizing: border-box;
-        }
-        
-        input[type=submit] {
-          width: 100%;
-          background-color: #02134c;
-          color: white;
-          padding: 14px 20px;
-          margin: 8px 0;
-          border: none;
-          border-radius: 4px;
-          cursor: pointer;
-        }
-        
-        input[type=submit]:hover {
-          background-color: #02457a;
-        }
-        
-        div {
-          border-radius: 5px;
-          background-color: #f2f2f2;
-          padding: 20px;
-        }
-        </style>
         
         <div>
-          <form action="/action_page.php">
-            <label for="fname">New Password</label>
-            <input type="text" id="fname" name="firstname" placeholder="Enter New Password">
-        
-            <label for="lname">Confirm Password</label>
-            <input type="text" id="lname" name="lastname" placeholder="Renter New Password">
-        
+          <form>
+            <div id="display_image">
+            <input type="file" id="image_input"> 
+            </div>
+            <script>
+              const image_input = document.querySelector("#image_input");
+              var uploaded_image;
+
+              image_input.addEventListener('change', function() {
+                const reader = new FileReader();
+                reader.addEventListener('load', () => {
+                  uploaded_image = reader.result;
+                  document.querySelector("#display_image").style.backgroundImage = `url(${uploaded_image})`;
+                });
+                reader.readAsDataURL(this.files[0]);
+              });
+            </script>
+
+            <label for="fname">Email ID </label>
+            <input type="text" name="email" placeholder="Enter existing email">
+            <label for="fname">Change Password: </label>
+            <input type="text" name="password" placeholder="Enter New Password">
             <input type="submit" value="Submit">
           </form>
         </div>

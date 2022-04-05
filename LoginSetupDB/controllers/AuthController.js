@@ -2,9 +2,6 @@ const User = require('../models/User')
 const bcrypt = require('bcryptjs')
 const jwt =  require('jsonwebtoken')
 
-
- //Function for registration process
-
  const register = (req, res, next) => {
     bcrypt.hash(req.body.password, 10, function(err, hashedPass){
         if(err) {
@@ -14,6 +11,7 @@ const jwt =  require('jsonwebtoken')
         }
 
         let user = new User({
+            username: req.body.username,
             email: req.body.email,
             password: hashedPass
         })
@@ -32,10 +30,13 @@ const jwt =  require('jsonwebtoken')
     })
 }
 
+var session;
 
-const login = (req, res, next) =>{
+const login = (req, res) =>{
     var email = req.body.email
     var password = req.body.password
+
+    console.log(req.session)
 
     User.findOne({$or: [{email:email}]})
     .then(user => {
@@ -46,12 +47,18 @@ const login = (req, res, next) =>{
                         error: err
                     })
                 }
+                // 
                 if(result){
-                    let token = jwt.sign({email: user.email}, 'verySecretValue', {expiresIn: '1h'})
+                    //A variable to store session                    
+                    session = req.session;
+                    session.email = email;
+                    //console.log(typeof req)
+                    let token = jwt.sign({email: user.email}, 'AzQ,PI)0(', {expiresIn: '1h'})
                     res.json({
                         message: 'Login Successful', 
                         token
                     })
+                    console.log(req.session)
                 }else{
                     res.json({
                         message: 'Password does not match'
@@ -65,6 +72,9 @@ const login = (req, res, next) =>{
         }
     })
 }
+
+
+
 module.exports = {
     register, login
 }

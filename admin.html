@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,27 +14,29 @@
 </form>
 </div>
 
-
+<form  method="post" action="http://localhost:3000/api/show">
   <label for="fname">Email ID </label>
+  <div id="submit">
   <input type="search" name="email" placeholder="Enter existing email">
-  <div>
     <input type="submit" value="Submit">
   </div>
+</form>
 
-  <div>
+
+  <div id="username">
     <label for="fname">Username </label>
     <input type="text" name="username" placeholder="Display username">
   </div>
-  <div>
+  <div id="email">
     <label for="fname">Email ID </label>
     <input type="text" name="email" placeholder="Display email">
   </div>
-  <div>
+  <div id="pass">
     <label for="fname"> Password </label>
     <input type="text" name="password" placeholder="Display Password">
   </div>
   
   <input type="submit" value="Submit">
-
+<script src="./controllers/AdminController.js"></script>
 </body>
 </html>

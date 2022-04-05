@@ -47,7 +47,7 @@ body{
 .screen h2{
     margin-bottom: 20px;
     font-size: 30px;
-    color: #111;
+    color: #02134c;
     border-bottom: 4px solid #555;
     padding: 5px 0px;
     display: inline-block;
@@ -66,7 +66,7 @@ body{
 
 .screen .form-input button{
     padding: 10px 20px;
-    background: #111;
+    background: #02134c;
     color: #eee;
     font-size: 16px;
     cursor: pointer;
@@ -75,7 +75,7 @@ body{
 }
 
 .chat-screen .header{
-    background: #111;
+    background: #02134c;
     height: 50px;
     display: flex;
     justify-content: space-between;
@@ -149,7 +149,7 @@ body{
 .chat-screen .typebox button{
     width: 80px;
     height: 100%;
-    background: #111;
+    background: #02134c;
     color: #eee;
     font-size: 16px;
     outline: none;

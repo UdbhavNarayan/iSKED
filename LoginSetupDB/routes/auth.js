@@ -38,15 +38,10 @@ router.post('/show',  AdminController.show) //ADMIN AUTHENTICATION
 router.post('/store', upload.array('avatar[]'), AdminController.store) 
 router.post('/update', AdminController.update)
 router.post('/delete', AdminController.destroy) //ADMIN AUTHENTICATION
-// router.get('/profile', function(req,res){
-//     res.json({
-//         //isAuth: true,
-//         id: req.user._id,
-//         email: req.user.email,
-//         avatar: req.user.avatar
-        
-//     })
+router.get('/profile', AuthController.profile)
+  
 // });
+
 // router.get('/logout',function(req,res){
 //     req.user.deleteToken(req.token,(err,user)=>{
 //         if(err) return res.status(400).send(err);

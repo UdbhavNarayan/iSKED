@@ -1,0 +1,61 @@
+head
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  meta(charset='utf-8')
+  title iSked page 1
+  meta(name='description' content='iSked website')
+  meta(name='author' content='Team iSked')
+  link(rel='stylesheet' href='project.css')
+  link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384- 1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3' crossorigin='anonymous')
+  link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css')
+.container
+  section#login
+    form#login.form(method='post' action='http://localhost:3000/api/login')
+      h2.title iSked Login
+      .fm.form__message--error
+      .form__input-group
+        input.form__input(type='text' placeholder='Email' name='email')
+        .form__input-error-message
+      .form__input-group
+        input.form__input(type='password' placeholder='Password' name='password')
+        .form__input-error-message
+        |  --&gt;
+      p.form__text
+        a.form__link(href='#forgot-password') Forgot password?
+      button.form__button(type='submit') Sign in
+      p.form__text
+        #register.form__button(style='text-align:center') Sign Up
+  section#signup
+    form#createAccount.form.form--hidden(method='post' action='http://localhost:3000/api/register')
+      h2.title Register as User
+      .fm.form__message--error
+      .form__input-group
+        input#signupUsername.form__input(type='text' placeholder='Username' name='username')
+        .form__input-error-message
+      .form__input-group
+        input.form__input(type='text' placeholder='Email Address' name='email')
+        .form__input-error-message
+      .form__input-group
+        input.form__input(type='password' placeholder='Password' name='password')
+        .form__input-error-message
+      .form__input-group
+        input.form__input(type='password' placeholder='Confirm password')
+        .form__input-error-message
+      button.form__button(type='submit') Sign up
+      p.form__text
+        a#Login.form__link(href='./') Already have an account? Sign in
+  form#createPassword
+    h2.form__title Forgot Password
+    .form__message.form__message--error
+    .form__input-group
+      input.form__input(type='text' placeholder='Email Address')
+      .form__input-error-message
+    .form__input-group
+      input.form__input(type='password' placeholder='Password')
+      .form__input-error-message
+    .form__input-group
+      input.form__input(type='password' placeholder='Confirm password')
+      .form__input-error-message
+    button.form__button(type='submit') Submit
+    h1 the emails is #{email}
+  script(src='project.js')
+  script(src='server.js')

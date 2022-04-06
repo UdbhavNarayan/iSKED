@@ -65,8 +65,9 @@ const login = (req, res) =>{
                     res.json({
                         user,
                         message: 'Login Successful', 
-                        token
+                        token,
                     })
+                    //session
                     console.log(req.session)
                 }else{
                     res.json({

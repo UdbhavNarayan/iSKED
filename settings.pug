@@ -8,9 +8,9 @@ head
 section.Heading(style='background-color: #02134c;')
   h2(style='color: white; text-align: center;')  Setting 
 div
-  form
+  form(method='post' action='http://localhost:3000/api/show')
     #display_image
-      input#image_input(type='file')
+      input#image_input(type='file' name='avatar')
     script.
       const image_input = document.querySelector("#image_input");
       var uploaded_image;
@@ -27,3 +27,4 @@ div
     label(for='fname') Change Password: 
     input(type='text' name='password' placeholder='Enter New Password')
     input(type='submit' value='Submit')
+script(src='./controllers/AdminController.js')

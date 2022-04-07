@@ -1,0 +1,28 @@
+doctype html
+head
+  meta(name='viewport' content='width=device-width, initial-scale=1')
+  link(rel='stylesheet' href='admin.css')
+.topnav
+  a.active(href='#home') Admin Settings
+  a(href='./reset.html') Reset Settings
+  form
+    button(type='submit') Logout
+form(method='post' action='http://localhost:3000/api/show')
+  label(for='fname') Email ID 
+  #submit
+    input(type='search' name='email' placeholder='Enter existing email')
+    input(type='submit' value='Submit')
+form(method='post' action='http://localhost:3000/api/show')
+  #username
+    label(for='fname') Username 
+    input(type='text' name='username' placeholder='Display username' readonly='')
+  #email
+    label(for='fname') Email ID 
+    input(type='text' name='email' placeholder='Display email' readonly='')
+  #pass
+    label(for='fname')  Password 
+    input(type='text' name='password' placeholder='Display Password' readonly='')
+  #pass
+    label(for='fname')  Image Name 
+    input(type='text' name='avatar' placeholder='Display File Name' readonly='')
+script(src='./controllers/AdminController.js')

@@ -12,9 +12,9 @@
     </section>
         
         <div>
-          <form>
+          <form  method="post" action="http://localhost:3000/api/show">
             <div id="display_image">
-            <input type="file" id="image_input"> 
+            <input type="file" id="image_input" name="avatar"> 
             </div>
             <script>
               const image_input = document.querySelector("#image_input");
@@ -37,4 +37,5 @@
             <input type="submit" value="Submit">
           </form>
         </div>
+        <script src="./controllers/AdminController.js"></script>
 </body>

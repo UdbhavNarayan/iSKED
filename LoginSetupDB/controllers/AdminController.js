@@ -93,30 +93,47 @@ const show = (req, res, next) => {
 
 //add new employee //ADMIN
 const store = (req,res, next) => {
-    let employee = new User({
-        email: req.body.email,
-        password: req.body.password
-    })
+    email = session.email
+    let updatedData = {
+    }
     if(req.files) {
         let path = ''
         req.files.forEach(function(files, index,arr){
             path = path + files.path + ','
         })
         path = path.substring(0,path.lastIndexOf(","))
-        employee.avatar = path
+        updatedData.avatar = path
+        session.avatar = path;
     }
-    employee.save()
-    .then(response => {
-        res.json({
-            message: 'Employee added successfully'
+    
+    if(req.body.password != '')
+    {
+        bcrypt.hash(req.body.password, 10, function(err, hashedPass){
+            if(err) {
+                res.json({
+                    error: err
+                })
+            }
+            updatedData.password = hashedPass;
         })
-    })
-    .catch(error => {
+    }
+    
+    console.log(updatedData)
+
+    User.findOneAndUpdate({email:{$regex:email}}, {$set: updatedData})     
+    .then(() => {
+        res.json({   
+            message: 'User updated successfully!'
+        })
+    }).catch(error => {
         res.json({
             message: 'An error occured'
         })
     })
+        
 }
+
+
  
 //ADD PROFILE PICTURE FUNCTION USER
 // const profile = (req,res, next) => {
@@ -147,10 +164,14 @@ const store = (req,res, next) => {
 //     })
 // }
 
+// const uploa = (req,res,next)
+
 
 //update an employee //USER AND ADMIN
 const update = (req, res, next) => {
     let email = req.body.email
+    //let avatar = req.body.avatar
+
     bcrypt.hash(req.body.password, 10, function(err, hashedPass){
         if(err) {
             res.json({
@@ -158,15 +179,16 @@ const update = (req, res, next) => {
             })
         }
         let updatedData = {
-            avatar: req.body.avatar,
+           // avatar: req.body.avatar,
             //email: req.body.email,
             password: hashedPass
         }
+        console.log(typeof avatar)
         User.findOneAndUpdate({email:{$regex:email}}, {$set: updatedData})
-    //User.findByIdAndUpdate(email, {$set: updatedData})
-    .then(() => {
-        res.json({
-            message: 'Employee updated successfully!'
+        
+        .then(() => {
+        res.json({   
+            message: 'USer updated successfully!'
         })
     })
     .catch(error => {
@@ -175,8 +197,7 @@ const update = (req, res, next) => {
         })
     })
     })
-      
-    
+         
 }
 
 

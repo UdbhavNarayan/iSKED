@@ -1,0 +1,15 @@
+doctype html
+head
+  meta(name='viewport' content='width=device-width, initial-scale=1')
+  link(rel='stylesheet' href='../public/admin.css')
+form(method='post' action='http://localhost:3000/api/update')
+  label(for='fname') Email ID 
+  #submit
+    input(type='search' name='email' placeholder='Enter existing email')
+    //- input(type='submit' value='Submit')
+
+  #pass
+    label(for='fname')  New Password 
+    input(type='text' name='password' placeholder='Display Password')
+  input(type='submit' value='Submit')
+script(src='../controllers/AdminController.js')

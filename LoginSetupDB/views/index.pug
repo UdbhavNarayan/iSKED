@@ -1,14 +1,40 @@
 
-doctype html
-html(lang="en")
-  head
-    title= 'Node.js Template'
-  body
-  table 
-    h1 The user has following result -
-    h1 Email - #{email}
-    h1 Username - #{username}
-    h1 Password - #{password}
-    h1 Avatar - #{avatar}
+//- doctype html
+//- html(lang="en")
+//-   head
+//-     title= 'Node.js Template'
+//-   body
+//-   table 
+//-     h1 The user has following result -
+//-     h1 Email - #{email}
+    //- h1 Username - #{username}
+//-     h1 Password - #{password}
+//-     h1 Avatar - #{avatar}
 
-    
+doctype html
+//-  // h1 #{email}
+head
+  meta(name='viewport' content='width=device-width, initial-scale=1')
+  link(rel='stylesheet' href='../css/admin.css')
+  //-  br
+  #username
+    label(for='fname') Username 
+    //- input(type='text' name='username' placeholder='#{username}' readonly='')
+    //- h2 #{username}
+    .boxed  #{username}
+    br
+
+  #email
+    label(for='fname') Email ID 
+    //- input(type='text' name='email' placeholder='#{email}' readonly='')
+    .boxed  #{email}
+    br
+  #pass
+    label(for='fname')  Password 
+    //- input(type='text' name='password' placeholder='#{password}' readonly='')
+    .boxed  #{password}
+    br
+  #pass
+    label(for='fname')  Image Name 
+    //- input(type='text' name='avatar' placeholder='#{avatar}' readonly='')
+    .boxed  #{avatar}

@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../css/admin.css">
+</head>
+<body>
+<div class="topnav">
+    <a class="active" href="#home">Admin Settings</a>
+    <a href="../pug/reset.pug">Reset Settings</a>
+    <form method="post" action="http://localhost:3000/api/logout">
+        <button type="submit">Logout</button>
+</form>
+</div>
+
+<form  method="post" action="http://localhost:3000/api/show">
+  <label for="fname">Email ID </label>
+  <div id="submit">
+  <input type="search" name="email" placeholder="Enter existing email">
+    <input type="submit" value="Submit">
+  </div>
+</form>
+
+
+  
+<script src="../controllers/AdminController.js"></script>
+</body>
+</html>

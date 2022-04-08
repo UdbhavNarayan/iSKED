@@ -3,7 +3,7 @@ const multer = require('multer')
 
 var storage = multer.diskStorage({
     destination: function(req, file, cb) {
-        cb(null, 'uploads/')
+        cb(null, 'public/uploads/')
     },
     filename: function(req, file, cb) {
         let ext = path.extname(file.originalname)
@@ -20,7 +20,7 @@ var upload = multer ({
         ){
             callback(null,true)
         } else{
-            console.log('only jpg & png file supported')
+            console.log('only png file supported')
         }
     },
     limits: {

@@ -31,14 +31,14 @@ router.post('/register', AuthController.register)
 router.post('/login', AuthController.login)
 // router.post('/logout', AuthController.logout)
 
-
-
 router.get('/',  AdminController.index) //ADMIN AUTHENTICATION
 router.post('/show',  AdminController.show) //ADMIN AUTHENTICATION
 router.post('/store', upload.array('avatar[]'), AdminController.store) 
 router.post('/update', AdminController.update)
 router.post('/delete', AdminController.destroy) //ADMIN AUTHENTICATION
 router.get('/profile', AuthController.profile)
+router.get('/logout', AuthController.logout)
+router.get('/settings', AuthController.settings)
   
 // });
 

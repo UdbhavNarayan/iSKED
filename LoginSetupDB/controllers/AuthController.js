@@ -32,64 +32,77 @@ const { redirect } = require('express/lib/response')
     })
 }
 
-var session;
+
+var adminEmail = 'admin@gmail.com';
+var adminPass = 'admin';
 
 const login = (req, res) =>{
     console.log('Login API called')
     var email = req.body.email
     var password = req.body.password
+    if(adminEmail == email && adminPass == password)
+    {
+        res.render('../admin/admin.pug')
+    }
+    else{
+        User.findOne({$or: [{email:email}]},{username:1,password:1,avatar:1})
+        .then(user => {
+            console.log('Login API: Ran user query')
+            if(user){
+                console.log('Login API: User found')
+                const avatar = user.avatar;
+                const token = user.token;
+                const username = user.username;
+                bcrypt.compare(password, user.password, function(err, result) {
+                    if(err) {
+                        console.log('Login API: Password matching error')
+                        res.json({
+                            error: err
+                        })
+                    }
+                    if(result){
+                        console.log('Login API: Successful')
+                        //A variable to store session        
+                        //console.log(typeof user)            
+                        session = req.session;
+                        session.email = email;
+                        session.avatar = avatar;
+                        session.username = username
+                        //session.token = token;
+                        //session.avatar = avatar;
+                        //session.avatar = user[0].avatar;
+                        //console.log(typeof req)
+                        let token = jwt.sign({email: User.email}, 'AzQ,PI)0(', {expiresIn: '1h'})
+                        session.token = token
+                        // res.json({
+                        //     user,
+                        //     message: 'Login Successful', 
+                        //     token,
+                        // })
+                        //session
+                        console.log(session)
+                         //res.render('../views/index.pug', {email: session.email, username: session.username, avatar: session.avatar})
+                        //res.render('../views/test.pug', {email: session.email, username: session.username, avatar: session.avatar});
+                        res.redirect('../secondpage.html')
+                    }else{
+                        console.log('Login API: Password does not match')
+                        res.json({
+                            message: 'Password does not match'
+                        })
+                    }
+                })
+            }else{
+                res.json({
+                    message: ' No user found'
+                })
+            }
+        })
+    }
+}
 
-    User.findOne({$or: [{email:email}]},{username:1,password:1,avatar:1})
-    .then(user => {
-        console.log('Login API: Ran user query')
-        if(user){
-            console.log('Login API: User found')
-            const avatar = user.avatar;
-            const token = user.token;
-            const username = user.username;
-            bcrypt.compare(password, user.password, function(err, result) {
-                if(err) {
-                    console.log('Login API: Password matching error')
-                    res.json({
-                        error: err
-                    })
-                }
-                if(result){
-                    console.log('Login API: Successful')
-                    //A variable to store session        
-                    //console.log(typeof user)            
-                    session = req.session;
-                    session.email = email;
-                    session.avatar = avatar;
-                    session.username = username
-                    //session.token = token;
-                    //session.avatar = avatar;
-                    //session.avatar = user[0].avatar;
-                    //console.log(typeof req)
-                    let token = jwt.sign({email: User.email}, 'AzQ,PI)0(', {expiresIn: '1h'})
-                    session.token = token
-                    // res.json({
-                    //     user,
-                    //     message: 'Login Successful', 
-                    //     token,
-                    // })
-                    //session
-                    console.log(session)
-                     //res.render('../views/index.pug', {email: session.email, username: session.username, avatar: session.avatar})
-                    res.render('../views/test.pug', {email: session.email, username: session.username, avatar: session.avatar});
-                }else{
-                    console.log('Login API: Password does not match')
-                    res.json({
-                        message: 'Password does not match'
-                    })
-                }
-            })
-        }else{
-            res.json({
-                message: ' No user found'
-            })
-        }
-    })
+const settings = (req, res, next) => {
+    console.log(session)
+    res.render('../settings.pug', {email: session.email, avatar: session.avatar})
 }
 
 //HOW TO GET VARIABLE FROM SESSION??
@@ -108,14 +121,22 @@ const profile = (req,res) => {
 
 // app.get('/logout',function(req,res){
     const logout = (req,res) => {
-    req.session.destroy(function(err) {
-      if(err) {
-        console.log(err);
-      } else {
-        res.redirect('/project.html');
-      }
-    });
-  }
+        if(session)
+        {
+            req.session.destroy(function(err) {
+                if(err) {
+                  console.log(err);
+                } else {
+                  res.redirect('/project.html');
+                }
+              });
+        }
+        else{
+            res.json({
+                message: 'Hello'
+            })
+        }
+    }
 // logout.logout (req,res,function(err,data) {
 //         session = req.session;
 //         session.destroy(function(err) {
@@ -133,5 +154,5 @@ const profile = (req,res) => {
 
 
 module.exports = {
-    register, login, profile
+    register, login, profile, logout,settings
 }

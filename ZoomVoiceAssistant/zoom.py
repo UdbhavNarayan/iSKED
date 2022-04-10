@@ -6,7 +6,7 @@ from datetime import datetime
 import webbrowser
 
 
-api_key = 'JBynnGfrS_6NsktQEz97RA'
+api_key = 'JBynnGfrS_6NsktQEz97RA' #Ekansh will have to enter his zoom api details
 api_secret = 'Ddnot5eH8BZrW8L9rC9OtoJnpg49OpEmmilF'
 
 def generateToken():

@@ -39,16 +39,7 @@ router.post('/delete', AdminController.destroy) //ADMIN AUTHENTICATION
 router.get('/profile', AuthController.profile)
 router.get('/logout', AuthController.logout)
 router.get('/settings', AuthController.settings)
-  
-// });
 
-// router.get('/logout',function(req,res){
-//     req.user.deleteToken(req.token,(err,user)=>{
-//         if(err) return res.status(400).send(err);
-//         res.sendStatus(200);
-//     });
-
-// }); 
 
 
 module.exports = router

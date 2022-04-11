@@ -10,8 +10,11 @@ section.Heading(style='background-color: #02134c;')
 div
   form(method='post' action='http://localhost:3000/api/store' enctype="multipart/form-data")
     #display_image
+      //- var x = "../#{session.avatar}"
       p (Only PNG images allowed)
       input#image_input(type='file' name='avatar[]')
+      #eti
+        img(src= "../uploads/1649655009293.png", alt="User profile picture") 
     script.
       const image_input = document.querySelector("#image_input");
       var uploaded_image;
@@ -23,9 +26,11 @@ div
       });
       reader.readAsDataURL(this.files[0]);
       });
+    label(for='fname') Username 
+    .boxed  #{username}
     label(for='fname') Email 
     .boxed  #{email}
     label(for='fname') Change Password: 
-    input(type='text' name='password' placeholder='Enter New Password')
+    input(type='text' name='password' placeholder='Enter New Password OR Existing password to change the image')
     input(type='submit' value='Submit')
 

@@ -68,21 +68,12 @@ const login = (req, res) =>{
                         session.email = email;
                         session.avatar = avatar;
                         session.username = username
-                        //session.token = token;
-                        //session.avatar = avatar;
-                        //session.avatar = user[0].avatar;
-                        //console.log(typeof req)
+                   
                         let token = jwt.sign({email: User.email}, 'AzQ,PI)0(', {expiresIn: '1h'})
                         session.token = token
-                        // res.json({
-                        //     user,
-                        //     message: 'Login Successful', 
-                        //     token,
-                        // })
-                        //session
+                    
                         console.log(session)
-                         //res.render('../views/index.pug', {email: session.email, username: session.username, avatar: session.avatar})
-                        //res.render('../views/test.pug', {email: session.email, username: session.username, avatar: session.avatar});
+        
                         res.redirect('../secondpage.html')
                     }else{
                         console.log('Login API: Password does not match')
@@ -102,7 +93,7 @@ const login = (req, res) =>{
 
 const settings = (req, res, next) => {
     console.log(session)
-    res.render('../settings.pug', {email: session.email, avatar: session.avatar})
+    res.render('../settings.pug', {username: session.username,email: session.email, avatar: session.avatar})
 }
 
 //HOW TO GET VARIABLE FROM SESSION??
@@ -133,24 +124,10 @@ const profile = (req,res) => {
         }
         else{
             res.json({
-                message: 'Hello'
+                message: 'Server unreachable. Please close the browser and try again!'
             })
         }
     }
-// logout.logout (req,res,function(err,data) {
-//         session = req.session;
-//         session.destroy(function(err) {
-//             if(err){
-//                 msg = 'Error destroying session';
-//                 res.json(msg);
-//             }else{
-//                 msg = 'Session destroy successfully';
-//                 console.log(msg)
-//                 res.json(msg);
-//             }
-//         });
-//         //res.json({ 'success': data.success, 'message': data.message });
-//     }
 
 
 module.exports = {

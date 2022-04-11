@@ -8,6 +8,7 @@ const bodyParser = require('body-parser');
 const express = require('express')
 const { handle } = require('express/lib/application')
 const { header } = require('express/lib/request')
+const { any } = require('../middleware/upload')
 
 
 const app = express();
@@ -45,18 +46,9 @@ const show = (req, res, next) => {
             const username = response[0].username;//.email; //.response.email;
             const avatar = response[0].avatar;//.email; //.response.email;
             res.render('../views/index.pug', {email: email, username: username, password: password, avatar: avatar});
-            // res.json({
-            //     response
-            // })
-                //app.use('/', (req, res, next) => {
     
     })
         
-//   });   
-            // res.send({
-            //     response
-            // })
-     //   })
         .catch(error => {
             res.json({
                 message: error.message
@@ -66,36 +58,18 @@ const show = (req, res, next) => {
         
 
 
-        // (err, e) => {
-        // if (err)
-        // res.send("NO SUCH USER");
-        // else
-        // // res.send(e);
-        // res.send("User Mongo Id: "+e._id+"<br>\n"+"User email: "+e.email+"<br>\n"+"Username: "+e.username+":<br>\n" +
-        // "Hashed password: " + e.password + "<br>\n" +
-        // "User avatar: " + e.avatar + "<br>\n" +
-        // "User created at: " + e.createdAt + "<br>\n" + "User updated at: " + e.updatedAt +
-        // "Ref: " + e);
-        // });
-    // };
-    
-    //     const usernme = document.getElementById("displayUsername")
-    //     const nd = document.createElement("div");
-    //     fetch(User.find({email:{$regex:email}}))
-    //     .then(res => res.text())
-    //     .then(txt => nd.innerHTML = txt)
-    //     usernme.append(nd);
-    // }
 
 
 
-// db.Employee.find({email:{$regex:"text"}})
 
 //add new employee //ADMIN
 const store = (req,res, next) => {
     email = session.email
     let updatedData = {
+        avatar : req.body.avatar,
+        password: String
     }
+    //password = req.body.password
     if(req.files) {
         let path = ''
         req.files.forEach(function(files, index,arr){
@@ -105,32 +79,35 @@ const store = (req,res, next) => {
         updatedData.avatar = path
         session.avatar = path;
     }
-    
-    if(req.body.password != '')
-    {
-        bcrypt.hash(req.body.password, 10, function(err, hashedPass){
+    enterpass = req.body.password
+    console.log("The entered password is "+enterpass)
+    //password = req.body.password
+    //console.log(password)
+    if(enterpass)
+     {
+        var hashedPass
+        bcrypt.hash(enterpass, 10, function(err, hashedPass){
             if(err) {
                 res.json({
                     error: err
                 })
             }
-            updatedData.password = hashedPass;
+            console.log("The hashed password is"+hashedPass)
+            
+            updatedData.password = hashedPass
+         User.findOneAndUpdate({email:{$regex:email}}, {$set: updatedData})     
+         .then(() => {
+             console.log(updatedData)
+             res.json({  
+                 message: 'User updated successfully!'
+             })
+         }).catch(error => {
+             res.json({
+                 message: 'An error occured'
+             })
+         })
         })
-    }
-    
-    console.log(updatedData)
-
-    User.findOneAndUpdate({email:{$regex:email}}, {$set: updatedData})     
-    .then(() => {
-        res.json({   
-            message: 'User updated successfully!'
-        })
-    }).catch(error => {
-        res.json({
-            message: 'An error occured'
-        })
-    })
-        
+    }        
 }
 
 

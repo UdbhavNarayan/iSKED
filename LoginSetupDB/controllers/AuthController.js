@@ -3,6 +3,7 @@ const bcrypt = require('bcryptjs')
 const jwt =  require('jsonwebtoken')
 const res = require('express/lib/response')
 const { redirect } = require('express/lib/response')
+const path = require('path')
 
  const register = (req, res, next) => {
     bcrypt.hash(req.body.password, 10, function(err, hashedPass){
@@ -31,17 +32,18 @@ const { redirect } = require('express/lib/response')
         })
     })
 }
-
+var sess;
 
 var adminEmail = 'admin@gmail.com';
 var adminPass = 'admin';
-
+var admflag = 0;
 const login = (req, res) =>{
     console.log('Login API called')
     var email = req.body.email
     var password = req.body.password
     if(adminEmail == email && adminPass == password)
     {
+        admflag = 1;
         res.render('../admin/admin.pug')
     }
     else{
@@ -66,12 +68,13 @@ const login = (req, res) =>{
                         //console.log(typeof user)            
                         session = req.session;
                         session.email = email;
-                        session.avatar = avatar;
+                        var x = path.basename(avatar)
+                        //console.log(x)
                         session.username = username
-                   
+                        session.avatar = 'http://localhost:3000/uploads/'+ x
                         let token = jwt.sign({email: User.email}, 'AzQ,PI)0(', {expiresIn: '1h'})
                         session.token = token
-                    
+                        sess = session
                         console.log(session)
         
                         res.redirect('../secondpage.html')
@@ -93,6 +96,9 @@ const login = (req, res) =>{
 
 const settings = (req, res, next) => {
     console.log(session)
+    avatar = session.avatar
+    console.log(avatar)
+    console.log(avatar.lastIndexOf(''));
     res.render('../settings.pug', {username: session.username,email: session.email, avatar: session.avatar})
 }
 
@@ -112,7 +118,7 @@ const profile = (req,res) => {
 
 // app.get('/logout',function(req,res){
     const logout = (req,res) => {
-        if(session)
+        if(sess)
         {
             req.session.destroy(function(err) {
                 if(err) {
@@ -121,6 +127,10 @@ const profile = (req,res) => {
                   res.redirect('/project.html');
                 }
               });
+        }
+        if(admflag)
+        {
+            res.redirect('../project.html')
         }
         else{
             res.json({

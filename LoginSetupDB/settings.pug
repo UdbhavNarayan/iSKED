@@ -10,11 +10,13 @@ section.Heading(style='background-color: #02134c;')
 div
   form(method='post' action='http://localhost:3000/api/store' enctype="multipart/form-data")
     #display_image
-      //- var x = "../#{session.avatar}"
+      //- var x = #{session.avatar}
       p (Only PNG images allowed)
       input#image_input(type='file' name='avatar[]')
-      #eti
-        img(src= "../uploads/1649655009293.png", alt="User profile picture") 
+      img(src= `${session.avatar}`, alt="User profile picture" width = '35%') 
+
+      
+      
     script.
       const image_input = document.querySelector("#image_input");
       var uploaded_image;
@@ -22,7 +24,7 @@ div
       const reader = new FileReader();
       reader.addEventListener('load', () => {
       uploaded_image = reader.result;
-      document.querySelector("#display_image").style.backgroundImage = `url(${uploaded_image})`;
+      //- document.querySelector("#display_image").style.backgroundImage = `url(${uploaded_image})`;
       });
       reader.readAsDataURL(this.files[0]);
       });
@@ -31,6 +33,6 @@ div
     label(for='fname') Email 
     .boxed  #{email}
     label(for='fname') Change Password: 
-    input(type='text' name='password' placeholder='Enter New Password OR Existing password to change the image')
+    input(type='text' name='password' placeholder='Enter New Password OR Existing password to change the profile picture')
     input(type='submit' value='Submit')
 

@@ -11,6 +11,7 @@ const { header } = require('express/lib/request')
 const { any } = require('../middleware/upload')
 
 
+
 const app = express();
 // support parsing of application/json type post data
 app.use(bodyParser.json())
@@ -65,12 +66,23 @@ const show = (req, res, next) => {
 //add new employee //ADMIN
 const store = (req,res, next) => {
     email = session.email
+    avatar = session.avatar
     let updatedData = {
-        avatar : req.body.avatar,
-        password: String
+        password: String.
+        avatar
     }
+    var flag = 0;
+    av = req.files
+    console.log(av.length)
+    if(av.length > 0)
+    {
+        flag = 1;
+    }
+
+    console.log(av)
     //password = req.body.password
-    if(req.files) {
+    if(flag) {
+        console.log("THE FILE IS PRESENT")
         let path = ''
         req.files.forEach(function(files, index,arr){
             path = path + files.path + ','
@@ -78,6 +90,10 @@ const store = (req,res, next) => {
         path = path.substring(0,path.lastIndexOf(","))
         updatedData.avatar = path
         session.avatar = path;
+    }
+    if(flag == 0)
+    {
+        updatedData.avatar = session.avatar
     }
     enterpass = req.body.password
     console.log("The entered password is "+enterpass)

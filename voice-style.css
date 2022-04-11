@@ -1,0 +1,41 @@
+
+  html {
+    background-color: whitesmoke;
+  }
+  
+  :root {
+    --main: #001b48;
+  }
+  
+  h1,h5 {
+    text-align: center;
+    margin-bottom: 0;
+  }
+  
+  a {
+    color: #FFF;
+  }
+  
+  .tasks {
+    background-color: var(--main);
+    padding: 2rem;
+    width: 30%;
+    margin: 0 auto;
+    color: #FFF;
+    padding-left: 3rem;
+    border-radius: 10px;
+  }
+  
+  .hearing {
+    text-align: center;
+    font-size: 16px;
+    font-style: italic;
+    margin-top: 5px;
+  }
+  
+ 
+  
+  
+
+
+  

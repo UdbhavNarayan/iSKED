@@ -110,6 +110,7 @@ const settings = (req, res, next) => {
     const logout = (req,res) => {
         if(sess)
         {
+            console.log(sess)
             req.session.destroy(function(err) {
                 if(err) {
                   console.log(err);
@@ -118,14 +119,9 @@ const settings = (req, res, next) => {
                 }
               });
         }
-        if(admflag)
+        else
         {
             res.redirect('../project.html')
-        }
-        else{
-            res.json({
-                message: 'Server unreachable. Please close the browser and try again!'
-            })
         }
     }
 

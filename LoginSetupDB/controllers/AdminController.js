@@ -22,7 +22,7 @@ app.use(bodyParser.urlencoded({extended:true}))
 
 
 
-// Show list of Employees //ADMIN
+// Show list of users //ADMIN
 const index = (req, res, next) => {
     User.find()
     .then(response => {
@@ -37,7 +37,7 @@ const index = (req, res, next) => {
     })
 }
 //{email:{$regex:email}}
-// Show single employee //ADMIN
+// Show single user //ADMIN
 const show = (req, res, next) => {
     let email = req.body.email
     User.find({email:{$regex:email}},{username:1,password:1,avatar:1})
@@ -63,7 +63,7 @@ const show = (req, res, next) => {
 
 
 
-//add new employee //ADMIN
+//add new user //ADMIN
 const store = (req,res, next) => {
     email = session.email
     avatar = session.avatar
@@ -128,39 +128,8 @@ const store = (req,res, next) => {
 
 
  
-//ADD PROFILE PICTURE FUNCTION USER
-// const profile = (req,res, next) => {
-    // let email = req.body.email
-    // let password = req.body.password
-   
-//     if(req.files) {
-//         let path = ''
-//         req.files.forEach(function(files, index,arr){
-//             path = path + files.path + ','
-//         })
-//         path = path.substring(0,path.lastIndexOf(","))
-//         employee.avatar = path
-//     }
-//     let updatedData = {
-        
-//     }
-    
-//     .then(response => {
-//         res.json({
-//             message: 'Employee added successfully'
-//         })
-//     })
-//     .catch(error => {
-//         res.json({
-//             message: 'An error occured'
-//         })
-//     })
-// }
 
-// const uploa = (req,res,next)
-
-
-//update an employee //USER AND ADMIN
+//update a user //USER AND ADMIN
 const update = (req, res, next) => {
     let email = req.body.email
     //let avatar = req.body.avatar
@@ -194,7 +163,7 @@ const update = (req, res, next) => {
 }
 
 
-//delete an employee //ADMIN
+//delete a user //ADMIN
 const destroy = (req,res,next) => {
     let email = req.body.email
     User.findByIdAndRemove(email)

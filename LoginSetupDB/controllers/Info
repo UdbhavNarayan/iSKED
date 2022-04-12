@@ -1,2 +1,2 @@
 The controller files contains the functions which handles the registration and login process for a user and store it in DB.
-It also contains function CRUD in Employee file
+It also contains function CRUD in AdminController file

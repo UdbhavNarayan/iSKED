@@ -36,6 +36,7 @@ const index = (req, res, next) => {
         })
     })
 }
+
 //{email:{$regex:email}}
 // Show single user //ADMIN
 const show = (req, res, next) => {
@@ -59,11 +60,7 @@ const show = (req, res, next) => {
         
 
 
-
-
-
-
-//add new user //ADMIN
+//User settings //USER
 const store = (req,res, next) => {
     email = session.email
     avatar = session.avatar
@@ -123,7 +120,12 @@ const store = (req,res, next) => {
              })
          })
         })
-    }        
+    } 
+    else{
+        res.json({
+            message: "Please enter password before submitting"
+        })
+    }       
 }
 
 
@@ -150,7 +152,7 @@ const update = (req, res, next) => {
         
         .then(() => {
         res.json({   
-            message: 'USer updated successfully!'
+            message: 'User updated successfully!'
         })
     })
     .catch(error => {
@@ -169,7 +171,7 @@ const destroy = (req,res,next) => {
     User.findByIdAndRemove(email)
     .then(() => {
         res.json({
-            message: 'Employee Deleted Successfully'
+            message: 'User Deleted Successfully'
         })
     })
     .catch(error => {

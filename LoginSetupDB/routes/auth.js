@@ -36,7 +36,6 @@ router.post('/show',  AdminController.show) //ADMIN AUTHENTICATION
 router.post('/store', upload.array('avatar[]'), AdminController.store) 
 router.post('/update', AdminController.update)
 router.post('/delete', AdminController.destroy) //ADMIN AUTHENTICATION
-router.get('/profile', AuthController.profile)
 router.get('/logout', AuthController.logout)
 router.get('/settings', AuthController.settings)
 

@@ -102,18 +102,6 @@ const settings = (req, res, next) => {
     res.render('../settings.pug', {username: session.username,email: session.email, avatar: session.avatar})
 }
 
-//HOW TO GET VARIABLE FROM SESSION??
-//var ssn  = req.session
-const profile = (req,res) => {
-    // var email = .email
-    // var password = req.body.password
-    res.json({
-        //isAuth: true,
-        //id: session._id,
-        session
-
-    })
-}
 
 
 // app.get('/logout',function(req,res){
@@ -141,5 +129,5 @@ const profile = (req,res) => {
 
 
 module.exports = {
-    register, login, profile, logout,settings
+    register, login, logout,settings
 }

@@ -11,47 +11,89 @@ body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
   }
-  
-  .topnav {
+ 
+/*topnav box*/
+.topnav {
     overflow: hidden;
-    background-color: #02134c;
+    
+    position: absolute;
+    width:100%;
+    height: 111px;
+    left: 0px;
+    top: 0px;
+    background: #3E6896;
+    border: 1px solid #3E6896;
+    box-sizing: border-box;
+
   }
-  
-  .topnav a {
-    float: left;
+/* this changes admin setting and reset settings*/
+.topnav a {
+    position:relative;
+    width: 132px;
+    height: 26px;
+    left: 50px;
+    top:43px;
     color: #f2f2f2;
-    text-align: center;
+    text-align: left;
     padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
-  }
-  
-  .topnav a:hover {
-    background-color: #ddd;
-    color: black;
-  }
-  
-  .topnav a.active {
-    background-color: #02457a;
-    color: white;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 17px;
+    line-height: 26px;
   }
 
-  /* Style the button inside the input container */
-  .topnav button {
+  /*reset pw*/
+    .topnav a:hover {
+    background-color: #ddd;
+    color: white;
+    background: #02134C;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+      
+  }
+  /*admin settings*/
+   .topnav a.active {
+    color: white;
+     
+  }
+
+
+/*logout button*/
+.topnav button {
     float: right;
     padding: 6px;
-    margin-top: 8px;
-    margin-right: 16px;
-    background: #02457a;
-    color: white;
-    font-size: 17px;
-    border: none;
+    
+  position: absolute;
+  width: 185px;
+    height: 53px;
+    left: 1200px;
+    top: 29px;
+
+    background: #02134C;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
     cursor: pointer;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 17px;
+    line-height: 26px;
+    /* identical to box height */
+
+    color: #FFFFFF;
   }
+
   
-  .topnav button:hover {
-    background: #ccc;
+ /*hover for logout*/
+.topnav button:hover {
+    background: white;
+    color:  #02134C;
+ 
   }
+
   
   @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
 
@@ -64,44 +106,98 @@ body {
   }
   
   body{
-      background: whitesmoke;
+      background: white;
   }
+
+/*submit button styling*/
+    input[type=submit] {
+      position: absolute;
+      width: 194px;
+      height: 61px;
+      left: 238px;
+      top: 396px;
+
+      background: #003D7A;
+      border: 0.3px solid #000000;
+      box-sizing: border-box;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      border-radius: 30px;
+      cursor: pointer;
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: 300;
+      font-size: 20px;
+      line-height: 30px;
+      color: white;
+    }
+    
+    input[type=submit]:hover {
+      background-color: white;
+      color:#003D7A;
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: 300;
+      font-size: 20px;
+      line-height: 30px;
+    }
+
+
   .custom-file-upload {
-      border: 1px solid #ccc;
+       border: 1px solid #ccc;
       display: inline-block;
       padding: 6px 12px;
       cursor: pointer;
     }
-  
-    input[type=text], select {
-      width: 100%;
-      padding: 12px 20px;
-      margin: 8px 0;
-      display: inline-block;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      box-sizing: border-box;
-    }
-    
-    input[type=submit] {
-      width: 100%;
-      background-color: #02134c;
-      color: white;
-      padding: 14px 20px;
-      margin: 8px 0;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-    
-    input[type=submit]:hover {
-      background-color: #02457a;
-    }
-   
-    .boxed {
-      border: 1px solid black ;
-      background-color: white;
-      height: 30px;
-    }
 
-    
+   input[type=text], select {
+      
+        padding: 12px 20px;
+       position: absolute;
+        width: 530px;
+        height: 73px;
+        left: 70px;
+        top: 263px;
+
+        background: #FFFFFF;
+        border: 0.3px solid #000000;
+        box-sizing: border-box;
+    }
+ 
+/*input box*/
+      input[type=search]{
+      position: absolute;
+      width: 530px;
+      height: 73px;
+      left: 70px;
+      top: 263px;
+      background: #FFFFFF;
+      border: 0.3px solid #000000;
+      box-sizing: border-box;
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: 250;
+      font-size: 20px;
+      line-height: 30px;
+      color: #000000;
+      }
+
+label{
+  
+  /* Email ID: */
+
+      position: absolute;
+      width: 90px;
+      height: 27px;
+      left: 290px;
+      top: 179px;
+
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 30px;
+
+      color: #02134C;
+
+
+}

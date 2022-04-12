@@ -37,6 +37,7 @@ var sess;
 var adminEmail = 'admin@gmail.com';
 var adminPass = 'admin';
 var admflag = 0;
+
 const login = (req, res) =>{
     console.log('Login API called')
     var email = req.body.email

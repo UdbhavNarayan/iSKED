@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Voice Assisted To Do List </title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384- 1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<link rel="stylesheet" href="voice-style.css">
+</head>
+<body>
+    <section>
+    <h1> To Do List</h1>
+    <h5> With Voice Assistance</h5>
+    </section>
+    <section>
+<ul class="tasks">
+  <li>Provide access to microphone!</li>
+  <li> Say create to create task (example: 'create assignment')</li>
+  
+</ul>
+<p class="hearing"></p>
+</section>
+
+<script>
+    
+window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+const todoList = document.querySelector('ul.tasks');
+const heard = document.querySelector('.hearing');
+
+const recognise = new SpeechRecognition();
+recognise.interimResults = true;
+recognise.lang = 'en-US';
+recognise.addEventListener('result', event => {
+  const transcript = event.results[0][0].transcript;
+  if(event.results[0].isFinal) {
+    heard.innerHTML = 'Did you say: ' + transcript + '?';
+    
+    if(transcript.indexOf('create') == 0) {
+      let newTodo = document.createElement('li');
+      let todo = transcript.substring(6);
+      newTodo.innerHTML = todo;
+      todoList.append(newTodo);
+    }
+  }
+});
+recognise.addEventListener('end', recognise.start);
+recognise.start();
+</script>
+</body>
+</html>

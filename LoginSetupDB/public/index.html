@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    
+    <div id="container">
+      <div id="header">
+        <div id="monthDisplay"></div>
+        <div>
+          <button id="backButton">Back</button>
+          <button id="nextButton">Next</button>
+        </div>
+      </div>
+
+      <div id="weekdays">
+        <div>Sunday</div>
+        <div>Monday</div>
+        <div>Tuesday</div>
+        <div>Wednesday</div>
+        <div>Thursday</div>
+        <div>Friday</div>
+        <div>Saturday</div>
+      </div>
+
+      <div id="calendar"></div>
+    </div>
+
+    <div id="newEventModal">
+      <h2>New Event</h2>
+      
+      <button id='btnGiveCommand' onclick = myFunction()>Give Command!</button>
+      <br><br>
+      <span id='message'></span>
+      <br><br>
+
+      <input id="eventTitleInput" placeholder="Event Title" value="default"/>
+
+      <button id="saveButton">Save</button>
+      <button id="cancelButton">Cancel</button>
+    </div>
+
+    <div id="deleteEventModal">
+      <h2>Event</h2>
+
+      <p id="eventText"></p>
+
+      <button id="deleteButton">Delete</button>
+      <button id="closeButton">Close</button>
+    </div>
+
+    <div id="modalBackDrop"></div>
+
+    <script>
+      
+      function myFunction(){
+        console.log("function entered after command button");
+        command = ' ';
+        document.getElementById("eventTitleInput").setAttribute("value", "default");
+      }
+      
+      var message = document.querySelector('#message');
+
+      var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+      var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
+
+      var grammar = '#JSGF V1.0;'
+
+      var recognition = new SpeechRecognition();
+      var speechRecognitionList = new SpeechGrammarList();
+      speechRecognitionList.addFromString(grammar, 1);
+      recognition.grammars = speechRecognitionList;
+      recognition.lang = 'en-US';
+      recognition.interimResults = false;
+
+      recognition.onresult = function(event) {
+          var last = event.results.length - 1;
+          var command = event.results[last][0].transcript;
+          message.textContent = 'Voice Input: ' + command + '.'; 
+          document.getElementById("eventTitleInput").setAttribute("value", command);
+      };
+      
+      recognition.onspeechend = function() {
+          recognition.stop();
+      };
+
+      recognition.onerror = function(event) {
+          message.textContent = 'Error occurred in recognition: ' + event.error;
+      }        
+
+      document.querySelector('#btnGiveCommand').addEventListener('click', function(){
+          recognition.start();
+
+      });
+
+
+  </script>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

@@ -21,6 +21,7 @@ const path = require('path')
     
         user.save()
         .then(user => {
+            //sendVerificationEmail(user, res)
             res.json({
                 message: "User Added Successfully"
             })

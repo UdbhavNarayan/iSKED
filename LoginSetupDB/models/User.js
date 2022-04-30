@@ -11,10 +11,6 @@ const userSchema = new Schema({
     password: {
         type: String
     },
-    /*edited part*/
-    verified: {
-        type: Boolean
-    },
     avatar: {
         type: String,
         // default: 'public/uploads/boy.png'

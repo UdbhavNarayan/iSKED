@@ -1,6 +1,4 @@
 const User = require('../models/User')
-/*new line edited*/
-const UserVerification = require('../models/UserVerification')
 const bcrypt = require('bcryptjs')
 const jwt =  require('jsonwebtoken')
 const res = require('express/lib/response')

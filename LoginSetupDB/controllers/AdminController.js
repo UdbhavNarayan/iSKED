@@ -50,7 +50,6 @@ const show = (req, res, next) => {
             res.render('../views/index.pug', {email: email, username: username, password: password, avatar: avatar});
     
     })
-        
         .catch(error => {
             res.json({
                 message: error.message

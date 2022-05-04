@@ -1,3 +1,26 @@
+<!--/*=============================================================================
+ |   Assignment:  SOFTWARE ENGINEERING PROJECT - iSKED
+ |
+ |       Developer:  iSKED MEMBERS
+ |     Language:  HTML AND JAVASCRIPT
+ |   To Compile:  THE MAIN PAGE THAT RESULTS AFTER SUCCESSFUL LOGIN TO THE WEB APPLICATION.
+ |
+ |        Class:  SOFTWARE ENGINEERING
+ |   Instructor:  PROFESSOR MICHEAL LYU
+ |     Due Date:  6TH MAY 2022
+ |
+ +-----------------------------------------------------------------------------
+ |
+ |  Description:  THE PROGRAM WAS WRITTEN TO ALLOW USERS TO NAVIGATE THROUGH DIFFERENT FUNCTIONS OF THE WEB APPLICATION.
+ |                THE LANDING PAGE WHERE ALL ENLISTED FUNCTIONS INCLUDE CALENDAR, TODO LIST, GROUP CHAT AND SETTINGS.
+ |
+ |        Input:  USER'S CHOICE TO NAVIGATE TO A PARTICULAR FUNCTION OF iSKED.
+ |
+ |       Output:  THE PROGRAM CONNECTS THE LANDING PAGE WITH DIFFERENT FUNCTIONS OF iSKED.  
+ |
+ |
+ *===========================================================================*/-->
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,35 +31,40 @@
 </head>
 
 <body>
-
+<!-- NAVIGATION BAR THAT ENLISTS ALL THE AVAIABLE FUNCTIONS OF THE WEB APPLICATION-->
 <div class="navigation">
   <div class = "menuToggle"> <ion-icon name="person-circle-outline" style="color: white; size: 20px;"></ion-icon> </div>
   <ul>
     <li class = "list" >
+      <!-- NAVIGATION TO CALENDAR FUNCTION -->
       <a href = "index.html">
         <span class = "icon"> <ion-icon name="calendar-clear-outline"></ion-icon> </span>
         <span class = "text" style = "color:white">  Calendar </span>
       </a>
     </li>
     <li class = "list" >
+      <!-- NAVIGATION TO GROUP CHAT FUNCTION -->
       <a href = "http://localhost:5000/">
         <span class = "icon"> <ion-icon name="chatbubble-ellipses-outline"></ion-icon> </span>
         <span class = "text" style = "color:white"> Chats </span>
       </a>
     </li>
     <li class = "list" >
+      <!-- NAVIGATION TO TO DO LIST FUNCTION -->
       <a href = "voiceassistant.html">
         <span class = "icon"> <ion-icon name="mic-outline"></ion-icon></span>
         <span class = "text" style = "color:white"> To Do</span>
       </a>
     </li>
     <li class = "list" >
+      <!-- NAVIGATION TO SETTINGS FUNCTION -->
       <a href = "settings.html">
         <span class = "icon"> <ion-icon name="settings-outline"></ion-icon></span>
         <span class = "text" style = "color:white"> Settings </span>
       </a>
     </li>
     <li class = "list" >
+      <!-- LOG OUT OF THE PAGE -->
       <a href = "LoginSetupDB/project.html">
         <span class = "icon"> <ion-icon name="log-out-outline"></ion-icon></span>
         <span class = "text" style = "color:white"> Logout </span>
@@ -44,7 +72,7 @@
     </li>
   </ul>
   <section>
-    <!-- @Shraddha you can refer to this part for button <button type="button" class="btn btn-secondary btn-lg btn-block">Logout</button> -->
+   
   </section>
   
 </div>

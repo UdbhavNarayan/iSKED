@@ -4,10 +4,7 @@ const jwt =  require('jsonwebtoken')
 const res = require('express/lib/response')
 const { redirect } = require('express/lib/response')
 const path = require('path')
-const config = require("../configs/authconfig")
 const charac = '20220530hongkongchineseuniversity'
-const sendConfirmationEmail = require('../emailsend/sendEmail')
-
 
 
 let token = '';

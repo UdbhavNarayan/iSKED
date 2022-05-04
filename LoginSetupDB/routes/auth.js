@@ -38,7 +38,7 @@ router.post('/update', AdminController.update)
 router.post('/delete', AdminController.destroy) //ADMIN AUTHENTICATION
 router.get('/logout', AuthController.logout)
 router.get('/settings', AuthController.settings)
-router.get('/auth/confirm/:confirmationCode', AuthController.verifyUser)
+
 
 
 

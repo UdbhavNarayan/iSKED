@@ -11,7 +11,7 @@ const userSchema = new Schema({
     password: {
         type: String
     },
-    /*edited part*/
+    //this variable is 'False' till email of new user hasn't been verified, after which it changes to 'True'
     verified: {
         type: Boolean
     },

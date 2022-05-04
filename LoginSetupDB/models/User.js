@@ -16,6 +16,11 @@ const userSchema = new Schema({
         // default: 'public/uploads/boy.png'
 
         default: 'http://images.fineartamerica.com/images-medium-large/alien-face-.jpg' 
+    },
+    status:{
+        type: String,
+        enum: ['Pending', 'Active'],
+        default: "Pending"
     }
 }, {timestamps: true})
 

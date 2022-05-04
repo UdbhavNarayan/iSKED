@@ -4,8 +4,19 @@ const jwt =  require('jsonwebtoken')
 const res = require('express/lib/response')
 const { redirect } = require('express/lib/response')
 const path = require('path')
+const config = require("../configs/authconfig")
+const charac = '20220530hongkongchineseuniversity'
+const sendConfirmationEmail = require('../emailsend/sendEmail')
 
+
+
+let token = '';
+for(let i = 0; i < 25; i++)
+{
+    token = token + charac[Math.floor(Math.random()*charac.length)];
+}
  const register = (req, res, next) => {
+    const token = jwt.sign({email: req.body.email}, config.secret)
     bcrypt.hash(req.body.password, 10, function(err, hashedPass){
         if(err) {
             res.json({
@@ -16,7 +27,8 @@ const path = require('path')
         let user = new User({
             username: req.body.username,
             email: req.body.email,
-            password: hashedPass
+            password: hashedPass,
+            confirmationCode : token
         })
     
         user.save()
@@ -25,6 +37,7 @@ const path = require('path')
             res.json({
                 message: "User Added Successfully"
             })
+
         })
         .catch(error =>{
             res.json({
@@ -124,7 +137,6 @@ const settings = (req, res, next) => {
             res.redirect('../project.html')
         }
     }
-
 
 module.exports = {
     register, login, logout,settings

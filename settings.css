@@ -1,3 +1,26 @@
+
+/*=============================================================================
+|   Assignment:  SOFTWARE ENGINEERING PROJECT - iSKED
+|
+|       Developer:  iSKED MEMBERS
+|     Language:  CSS
+|   To Compile:  LINKED WITH THE USER FIRST PAGE.
+|
+|        Class:  SOFTWARE ENGINEERING
+|   Instructor:  PROFESSOR MICHEAL LYU
+|     Due Date:  6TH MAY 2022
+|
++-----------------------------------------------------------------------------
+|
+|  Description:  THE CSS FILE TO RENDER THE ELEMENTS OF SETTINGS PAGE WITH A GOOD USER INTERFACE.
+|
+|        Input:  NEW PROFILE PICTURE, USERNAME OR PASSWORD.
+|
+|       Output:  THE PROGRAM PRODUCES A HTML PAGE WHERE THE UPDATED INFORMATION OF USER PROFILE IS DISPLAYED.
+|                ALL USER INFORMATION IS ALLOWED TO BE EDITED OR CHANGED HERE BY USING THE EXISTING PASSWORD.
+|
+|
+*===========================================================================*/
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
 
 *

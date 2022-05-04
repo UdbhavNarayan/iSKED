@@ -5,6 +5,7 @@ const bodyParser = require('body-parser')
 var session;
 const AuthRoute = require('./routes/auth')
 
+//Connection to local host database.
 mongoose.connect('mongodb://localhost:27017/testdb', {useNewUrlParser: true, useUnifiedTopology: true} )
 const db = mongoose.connection
 

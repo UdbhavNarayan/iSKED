@@ -15,14 +15,14 @@ require("dotenv").config();
 const bcrypt = require('bcryptjs')
 
 //path for static verified page
-const path = require("path");
+// const path = require("path");
 
 /*nodemailer stuff*/
 let transporter = nodemailer.createTransport({
     "service": "gmail",
     auth: {
         user: process.env.AUTH_EMAIL,
-        password: process.env.AUTH_PASSWORD
+        pass: process.env.AUTH_PASS,
     }
 });
 
@@ -41,6 +41,8 @@ const res = require('express/lib/response')
 const { redirect } = require('express/lib/response')
 const path = require('path')
 
+
+//API to register the user during signup
  const register = (req, res, next) => {
     bcrypt.hash(req.body.password, 10, function(err, hashedPass){
         if(err) {
@@ -136,7 +138,7 @@ const sendVerificationEmail = ({_id, email}, res) => {
 };
 
 //verify email
-router.get("/verify/:userID/:uniqueString", (req, res) => {
+const verifcation =  (req, res) => {
     let { userID, uniqueString } = req.params;
 
     UserVerification
@@ -220,12 +222,12 @@ router.get("/verify/:userID/:uniqueString", (req, res) => {
             let message = "An error occurred while checking for existing user verification record";
             res.redirect(`/user/erified/error=true&message=${message}`);
         })
-});
+};
 
 //verified page route
-router.get("/verified", (req, res) => {
+const verified =  (req, res) => {
     res.sendFile(path.join(__dirname, "./../views/verified.html"));
-})
+}
 
 //NEW PART ends
 var sess;
@@ -301,6 +303,7 @@ const login = (req, res) =>{
     }
 }
 
+//API to render the setting page with pre-fetched data.
 const settings = (req, res, next) => {
     console.log(session)
     avatar = session.avatar
@@ -311,7 +314,7 @@ const settings = (req, res, next) => {
 
 
 
-// app.get('/logout',function(req,res){
+//API to logout user and destroy the session.
     const logout = (req,res) => {
         if(sess)
         {
@@ -332,5 +335,5 @@ const settings = (req, res, next) => {
 
 
 module.exports = {
-    register, login, logout,settings
+    register, login, logout,settings, verifcation, verified
 }

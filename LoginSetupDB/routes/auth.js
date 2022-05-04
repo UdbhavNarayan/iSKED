@@ -27,9 +27,10 @@ router.use(express.urlencoded({ extended: true }));
 router.use(express.static(__dirname));
 router.use(cookieParser());
 
+
+//API CALLS
 router.post('/register', AuthController.register)
 router.post('/login', AuthController.login)
-// router.post('/logout', AuthController.logout)
 
 router.get('/',  AdminController.index) //ADMIN AUTHENTICATION
 router.post('/show',  AdminController.show) //ADMIN AUTHENTICATION
@@ -38,7 +39,8 @@ router.post('/update', AdminController.update)
 router.post('/delete', AdminController.destroy) //ADMIN AUTHENTICATION
 router.get('/logout', AuthController.logout)
 router.get('/settings', AuthController.settings)
-
+router.get("/verify/:userID/:uniqueString",AuthController.verifcation)
+router.get("/verified",AuthController.verified)
 
 
 

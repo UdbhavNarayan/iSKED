@@ -17,8 +17,6 @@ const userSchema = new Schema({
     },
     avatar: {
         type: String,
-        // default: 'public/uploads/boy.png'
-
         default: 'http://images.fineartamerica.com/images-medium-large/alien-face-.jpg' 
     }
 }, {timestamps: true})

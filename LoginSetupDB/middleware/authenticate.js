@@ -1,5 +1,7 @@
 const jwt = require('jsonwebtoken')
 
+
+//Token creation for secured route access.
 const authenticate = (req,res,next) => {
     try{
 

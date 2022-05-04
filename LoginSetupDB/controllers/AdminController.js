@@ -59,7 +59,7 @@ const show = (req, res, next) => {
         
 
 
-//User settings //USER
+//User settings. Takes avatar and email from session variable//USER
 const store = (req,res, next) => {
     email = session.email
     avatar = session.avatar
@@ -130,7 +130,7 @@ const store = (req,res, next) => {
 
  
 
-//update a user //USER AND ADMIN
+//Update a user and store the information in database //USER AND ADMIN
 const update = (req, res, next) => {
     let email = req.body.email
     //let avatar = req.body.avatar
@@ -164,7 +164,7 @@ const update = (req, res, next) => {
 }
 
 
-//delete a user //ADMIN
+//Delete a user //ADMIN (FUCNTIONALITY NOT USED BUT CAN BE IMPLEMENTED)
 const destroy = (req,res,next) => {
     let email = req.body.email
     User.findByIdAndRemove(email)

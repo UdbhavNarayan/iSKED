@@ -11,6 +11,7 @@ var storage = multer.diskStorage({
     }
 })
 
+//Upload function to validate and keep track of uploaded images.
 var upload = multer ({
     storage: storage,
     fileFilter: function(req,file, callback) {

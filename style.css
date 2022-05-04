@@ -1,3 +1,28 @@
+/*=============================================================================
+ |   Assignment:  SOFTWARE ENGINEERING PROJECT - iSKED
+ |
+ |       Developer:  iSKED MEMBERS
+ |     Language:  CSS
+ |   To Compile:  PAGE REDIRECTED TO AFTER THE MAIN LANDING PAGE.
+ |
+ |        Class:  SOFTWARE ENGINEERING
+ |   Instructor:  PROFESSOR MICHEAL LYU
+ |     Due Date:  6TH MAY 2022
+ |
+ +-----------------------------------------------------------------------------
+ |
+ |  Description:  CSS FILE TO STYLE THE CALENDAR. THE CALENDAR OF iSKED ALLOWS USERS TO ADD AND DELETE EVENTS SCHEDULED FOR THE DAY. THROUGH MULTIPLE OPTIONS OF  
+ |                DAYS AROUND THE YEAR, THE USER GETS ACCESS TO ALL THE DAYS OF THE YEAR ON THE CALENDAR.
+ |     
+ |
+ |        Input:  USER CAN ADD EVENTS TO THE CALENDAR THROUGH TEXT AND VOICE INPUTS. THROUGH ADD AND DELETE EVENTS FUNCTION
+ |                THE USER HAS ACCESS TO MANY FUNCTIONALITIES IN THE FUNCTION.
+ |
+ |       Output:  iSKED DISPLAYS THE EVENTS SCHEDULED FOR THE USER ON THE CALENDAR.   
+ |
+ |
+ *===========================================================================*/
+
 body {
     display: flex;
     margin-top: 50px;

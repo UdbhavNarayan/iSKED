@@ -1,3 +1,26 @@
+/*=============================================================================
+ |   Assignment:  SOFTWARE ENGINEERING PROJECT - iSKED
+ |
+ |       Developer:  iSKED MEMBERS
+ |     Language:  CSS 
+ |   To Compile:  PAGE REDIRECTED TO AFTER THE MAIN LANDING PAGE FOR ENABLING CHAT.
+ |
+ |        Class:  SOFTWARE ENGINEERING
+ |   Instructor:  PROFESSOR MICHEAL LYU
+ |     Due Date:  6TH MAY 2022
+ |
+ +-----------------------------------------------------------------------------
+ |
+ |  Description:  CSS FILE FOR MAKING THE UI USER FRIENDLY. PROGRAM CREATED FOR MULTIPLE USERS TO INTERACT ON THE PLATFORM. DISPLAYS OPTION TO ADD USERNAME AND ENTER THE CHAT
+ |                WHERE EVERYONE IS INTERACTING. 
+ |     
+ |
+ |        Input:  USER CAN INTEACT WITH OTHER USERS IN THE FORM OF TEXT WHICH IS SHARED ON THE PLAFTFORM'S GROUP CHAT.
+ |
+ |       Output:  iSKED DISPLAYS THE INTERACTION AMONG VARIOUS USERS WITH THEIR USERNAMES.   
+ |
+ |
+ *===========================================================================*/
 *{
     margin: 0px;
     padding: 0px;

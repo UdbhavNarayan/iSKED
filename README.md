@@ -20,3 +20,5 @@ CSCI3100 Group Project - iSKED is a schedular and group chat platform that can h
   9. Email Verification: https://www.youtube.com/watch?v=FhqWF5veVGo&list=PLk8gdrb2DmChrL50moKeFNAVnFqZ3GLF7&index=7
   10. Email Verification: https://www.youtube.com/watch?v=RwMa3-yVeeE&list=PLk8gdrb2DmChrL50moKeFNAVnFqZ3GLF7&index=8
   11. verified.html: https://bit.ly/ttpc-verified
+  12. Voice assisted to do list : https://codepen.io/WebDEasy/pen/QWyMdbV
+  13. Login page: https://www.codingnepalweb.com/login-and-registration-form-in-html/

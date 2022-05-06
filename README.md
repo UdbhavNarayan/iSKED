@@ -22,4 +22,8 @@ CSCI3100 Group Project - iSKED is a schedular and group chat platform that can h
   11. verified.html: https://bit.ly/ttpc-verified
   12. Voice assisted to do list : https://codepen.io/WebDEasy/pen/QWyMdbV
   13. Login page: https://www.codingnepalweb.com/login-and-registration-form-in-html/
-  14. Front end sciprting and elements: https://www.w3schools.com
+  14. Authentication: https://www.mongodb.com/docs/realm/sdk/node/examples/authenticate-users/
+  15. Backend: https://www.youtube.com/watch?v=b91XgdyX-SM
+  16. MongoDB: https://www.bezkoder.com/node-js-mongodb-auth-jwt/
+  17. Reference Video: https://www.youtube.com/watch?v=QCJCglPLUgg
+  18. Front end sciprting and elements: https://www.w3schools.com

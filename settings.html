@@ -1,3 +1,27 @@
+<!--/*=============================================================================
+ |   Assignment:  SOFTWARE ENGINEERING PROJECT - iSKED
+ |
+ |       Developer:  iSKED MEMBERS
+ |     Language:  HTML AND JAVASCRIPT
+ |   To Compile:  EXPLAIN HOW TO COMPILE THIS PROGRAM
+ |
+ |        Class:  SOFTWARE ENGINEERING
+ |   Instructor:  PROFESSOR MICHEAL LYU
+ |     Due Date:  6TH MAY 2022
+ |
+ +-----------------------------------------------------------------------------
+ |
+ |  Description:  THE PROGRAM WAS WRITTEN TO ALLOW USERS TO UPDATE THEIR PROFILE INFORMATION
+ |                SUCH AS PROFILE PICTURE, USERNAME AND PASSWORD, AND CONNECT IT TO THE DATABASE.
+ |
+ |        Input:  NEW PROFILE PICTURE, USERNAME OR PASSWORD.
+ |
+ |       Output:  THE PROGRAM PRODUCES A HTML PAGE WHERE THE UPDATED INFORMATION OF USER PROFILE IS DISPLAYED.
+ |                ALL USER INFORMATION IS ALLOWED TO BE EDITED OR CHANGED HERE BY USING THE EXISTING PASSWORD.
+ |
+ |
+ *===========================================================================*/-->
+
 <!DOCTYPE html>
 <head>
     <title> Settings Page </title>
@@ -10,13 +34,14 @@
     <section class="Heading" style="background-color: #02134c;">
         <h2 style="color: white; text-align: center;"> Setting </h2>
     </section>
-        
+        <!-- HTML PART THAT RENDERS DIFFERENT ELEMENTS ON THE WEB APPLICATION.-->
         <div>
           <form  method="post" action="http://localhost:3000/api/show">
             <div id="display_image">
             <input type="file" id="image_input" name="avatar"> 
             </div>
             <script>
+              //JAVASCRIPT FOR RENDERING USER PROFILE PICTURE IN A BOX.
               const image_input = document.querySelector("#image_input");
               var uploaded_image;
 
@@ -29,7 +54,7 @@
                 reader.readAsDataURL(this.files[0]);
               });
             </script>
-
+            <!-- USER INPUTS USERNAME, NEW PASSWORD AND NEW IMAGE FOR USER PROFILE-->
             <label for="fname">Username </label>
             <input type="text" name="email" placeholder="Enter existing email">
             <label for="fname">Change Password: </label>

@@ -1,3 +1,25 @@
+/*=============================================================================
+ |   Assignment:  SOFTWARE ENGINEERING PROJECT - iSKED
+ |
+ |       Developer:  iSKED MEMBERS
+ |     Language:  CSS
+ |   To Compile:  EXPLAIN HOW TO COMPILE THIS PROGRAM
+ |
+ |        Class:  SOFTWARE ENGINEERING
+ |   Instructor:  PROFESSOR MICHEAL LYU
+ |     Due Date:  6TH MAY 2022
+ |
+ +-----------------------------------------------------------------------------
+ |
+ |  Description:  CSS TO STYLE THE LANDING PAGE OF iSKED.
+ |                THE LANDING PAGE WHERE ALL ENLISTED FUNCTIONS INCLUDE CALENDAR, TODO LIST, GROUP CHAT AND SETTINGS.
+ |
+ |        Input:  USER'S CHOICE TO NAVIGATE TO A PARTICULAR FUNCTION OF iSKED.
+ |
+ |       Output:  THE PROGRAM CONNECTS THE LANDING PAGE WITH DIFFERENT FUNCTIONS OF iSKED.  
+ |
+ |
+ *===========================================================================*/
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
 
 *

@@ -1,3 +1,28 @@
+<!-- /*=============================================================================
+ |   Assignment:  SOFTWARE ENGINEERING PROJECT - iSKED
+ |
+ |       Developer:  iSKED MEMBERS
+ |     Language:  HTML AND JAVASCRIPT
+ |   To Compile:  PAGE REDIRECTED TO AFTER THE MAIN LANDING PAGE.
+ |
+ |        Class:  SOFTWARE ENGINEERING
+ |   Instructor:  PROFESSOR MICHEAL LYU
+ |     Due Date:  6TH MAY 2022
+ |
+ +-----------------------------------------------------------------------------
+ |
+ |  Description:  THE CALENDAR OF iSKED ALLOWS USERS TO ADD AND DELETE EVENTS SCHEDULED FOR THE DAY. THROUGH MULTIPLE OPTIONS OF  
+ |                DAYS AROUND THE YEAR, THE USER GETS ACCESS TO ALL THE DAYS OF THE YEAR ON THE CALENDAR.
+ |     
+ |
+ |        Input:  USER CAN ADD EVENTS TO THE CALENDAR THROUGH TEXT AND VOICE INPUTS. THROUGH ADD AND DELETE EVENTS FUNCTION
+ |                THE USER HAS ACCESS TO MANY FUNCTIONALITIES IN THE FUNCTION.
+ |
+ |       Output:  iSKED DISPLAYS THE EVENTS SCHEDULED FOR THE USER ON THE CALENDAR.   
+ |
+ |
+ *===========================================================================*/-->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -17,7 +42,7 @@
           <button id="nextButton">Next</button>
         </div>
       </div>
-
+      <!-- DISPLAYING DIFFERENT DAYS OF THE WEEK -->
       <div id="weekdays">
         <div>Sunday</div>
         <div>Monday</div>
@@ -30,7 +55,7 @@
 
       <div id="calendar"></div>
     </div>
-
+    <!-- POP UP TO INSERT NEW EVENT ONTO THE CALENDAR -->
     <div id="newEventModal">
       <h2>New Event</h2>
       
@@ -45,6 +70,8 @@
       <button id="cancelButton">Cancel</button>
     </div>
 
+    <!-- DELETING EVENT FROM THE CALENDAR -->
+
     <div id="deleteEventModal">
       <h2>Event</h2>
 
@@ -56,6 +83,7 @@
 
     <div id="modalBackDrop"></div>
 
+    <!-- SCRIPT TO ADD VOICE INPUT INTO THE CALENDAR -->
     <script>
       
       function myFunction(){
@@ -65,7 +93,7 @@
       }
       
       var message = document.querySelector('#message');
-
+      //SPEECH TO TEXT RECOGNITION TO ADD STRING INPUT BY USER
       var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
       var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
 
@@ -77,6 +105,8 @@
       recognition.grammars = speechRecognitionList;
       recognition.lang = 'en-US';
       recognition.interimResults = false;
+
+      //FUNCTION USED TO GIVE VOICE INPUT BY THE USER AS EVENT 
 
       recognition.onresult = function(event) {
           var last = event.results.length - 1;

@@ -1,3 +1,28 @@
+/*=============================================================================
+ |   Assignment:  SOFTWARE ENGINEERING PROJECT - iSKED
+ |
+ |       Developer:  iSKED MEMBERS
+ |     Language:  JAVASCRIPT
+ |   To Compile:  PAGE REDIRECTED TO AFTER THE MAIN LANDING PAGE.
+ |
+ |        Class:  SOFTWARE ENGINEERING
+ |   Instructor:  PROFESSOR MICHEAL LYU
+ |     Due Date:  6TH MAY 2022
+ |
+ +-----------------------------------------------------------------------------
+ |
+ |  Description:  FILE USED FOR DIFFERENT FUNCTIONS TO DISPLAY ALL THE DAYS OF THE YEAR AND ADD EVENT BY USER. THE CALENDAR OF iSKED ALLOWS USERS TO ADD AND DELETE EVENTS SCHEDULED FOR THE DAY. THROUGH MULTIPLE OPTIONS OF  
+ |                DAYS AROUND THE YEAR, THE USER GETS ACCESS TO ALL THE DAYS OF THE YEAR ON THE CALENDAR.
+ |     
+ |
+ |        Input:  USER CAN ADD EVENTS TO THE CALENDAR THROUGH TEXT AND VOICE INPUTS. THROUGH ADD AND DELETE EVENTS FUNCTION
+ |                THE USER HAS ACCESS TO MANY FUNCTIONALITIES IN THE FUNCTION.
+ |
+ |       Output:  iSKED DISPLAYS THE EVENTS SCHEDULED FOR THE USER ON THE CALENDAR.   
+ |
+ |
+ *===========================================================================*/
+
 let nav = 0;
 let clicked = null;
 let events = localStorage.getItem('events') ? JSON.parse(localStorage.getItem('events')) : [];
@@ -23,7 +48,7 @@ function openModal(date) {
 
   backDrop.style.display = 'block';
 }
-
+//LOAD DIFFERENT EVENTS IN THE CALENDAR CREATED BY USER
 function load() {
   const dt = new Date();
 
@@ -50,7 +75,7 @@ function load() {
     `${dt.toLocaleDateString('en-us', { month: 'long' })} ${year}`;
 
   calendar.innerHTML = '';
-
+  //FUNCTION TO AUOMATICALLY ADD DIFFERENT DAYS OF THE MONTH THROUGHOUT THE YEAR
   for(let i = 1; i <= paddingDays + daysInMonth; i++) {
     const daySquare = document.createElement('div');
     daySquare.classList.add('day');
@@ -90,7 +115,7 @@ function closeModal() {
   clicked = null;
   load();
 }
-
+//EVENT FUCNTION TO SAVE THE EVENT INFORMATION CREATED BY USER
 function saveEvent() {
   if (eventTitleInput.value) {
     eventTitleInput.classList.remove('error');
@@ -106,13 +131,14 @@ function saveEvent() {
     eventTitleInput.classList.add('error');
   }
 }
-
+//FUNCTION TO DELETE CREATED EVENT BY USER
 function deleteEvent() {
   events = events.filter(e => e.date !== clicked);
   localStorage.setItem('events', JSON.stringify(events));
   closeModal();
 }
 
+//DIFFERENT BUTTONS FOR GOING TO NEXT MONTH AND PREVIOUS MONTH
 function initButtons() {
   document.getElementById('nextButton').addEventListener('click', () => {
     nav++;

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Verified Email</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        color: #049bc9;
+        font-family: 'Courier New', Courier, monospace
+          sans-serif;
+        height: 100vh;
+        display: flex;
+      }
+      div {
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+        width: 50%;
+        align-items: center;
+        padding-bottom: 25px;
+        padding-top: 10px;
+        align-self: center;
+      }
+      .animated {
+        background-repeat: no-repeat;
+        background-position: left top;
+        -webkit-animation-duration: 10s;
+        animation-duration: 10s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+      }
+      h2 {
+        text-align: center;
+        padding: 10px;
+        width: 80%;
+      }
+
+      @keyframes swing {
+        20% {
+          transform: rotate(15deg);
+        }
+        40% {
+          transform: rotate(-10deg);
+        }
+        60% {
+          transform: rotate(5deg);
+        }
+        80% {
+          transform: rotate(-5deg);
+        }
+        100% {
+          transform: rotate(0deg);
+        }
+      }
+
+      .swing {
+        -webkit-transform-origin: top center;
+        transform-origin: top center;
+        -webkit-animation-name: swing;
+        animation-name: swing;
+      }
+    </style>
+  </head>
+
+  <body></body>
+  <script>
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const error = urlParams.get("error");
+    const message = urlParams.get("message");
+
+    const bodyContent =
+      `<div style="background-color: #ffffffff">
+      <h2>Congratulations! Your Email has been verified!</h2>
+      <h3>You can now log in to your iSKED Account!</h3>
+    </div>`;
+    document.body.style.backgroundColor = error ? "#7F1D1D" : "#049bc9";
+    document.body.innerHTML = bodyContent;
+  </script>
+</html>

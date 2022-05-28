@@ -77,7 +77,7 @@ const path = require('path')
 //send verification email
 const sendVerificationEmail = ({_id, email}, res) => {
     const currentUrl = "http://localhost:3000/";
-
+    //the unique string is a combination of uuid and _id
     const uniqueString = uuidv4() + _id;
 
     const mailOptions = {
@@ -98,6 +98,7 @@ const sendVerificationEmail = ({_id, email}, res) => {
                 userId: _id,
                 uniqueString: hashedUniqueString,
                 createdAt: Date.now(),
+                //6 hour expiry
                 expiresAt: Date.now() + 21600000,
             });
 
@@ -249,7 +250,7 @@ const login = (req, res) =>{
         User.findOne({$or: [{email:email}]},{username:1,password:1,avatar:1})
         .then(user => {
             console.log('Login API: Ran user query')
-            //NEW PART
+            //to check if the user who istrying to log in is verified or not
             if(user){
                 if(!user[0].verified){
                     res.json({
@@ -257,7 +258,6 @@ const login = (req, res) =>{
                         message: "Email hasn't been verified yet. Check inbox."
                     })
                 }
-                //NEW PART ENDS
                 else{
                     console.log('Login API: User found')
                     const avatar = user.avatar;

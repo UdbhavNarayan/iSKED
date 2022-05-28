@@ -1,4 +1,27 @@
 
+  /*=============================================================================
+  |   Assignment:  SOFTWARE ENGINEERING PROJECT - iSKED
+  |
+  |       Developer:  iSKED MEMBERS
+  |     Language:  HTML AND JAVASCRIPT
+  |   To Compile:  EXPLAIN HOW TO COMPILE THIS PROGRAM
+  |
+  |        Class:  SOFTWARE ENGINEERING
+  |   Instructor:  PROFESSOR MICHEAL LYU
+  |     Due Date:  6TH MAY 2022
+  |
+  +-----------------------------------------------------------------------------
+  |
+  |  Description:  PROGRAM USED TO STYLE THE TO - DO LIST OF iSKED. 
+  |
+  |        Input:  SAY CREATE TO ADD NEW ELEMENT TO THE TO DO LIST OF THE USER.
+  |
+  |       Output:  THE PROGRAM PRODUCES A DYNAMIC PAGE WHERE THE ITEMS IF THE TODO LIST
+  |                ARE ADDED SEQUENTIALLY TO THE LIST.
+  |
+  |
+  |
+  *===========================================================================*/
   html {
     background-color: whitesmoke;
   }
